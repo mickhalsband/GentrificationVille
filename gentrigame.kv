@@ -1,0 +1,25 @@
+#:kivy 1.0.9
+
+<House>:
+	image: house_image
+	size: 50,50
+	Image:
+		id: house_image
+		source: 'resources/house.jpg'
+
+<GentriCityGame>:
+	rabbit: house_sprite
+	size: 800, 600
+	Image:
+		size: 800, 600
+		source: 'resources/background_far.jpg'
+            
+    Label:
+        font_size: 70  
+        center_x: root.width * 1 / 2
+        top: root.top - 50
+        text: "Gentrification City Game"
+
+    House:
+    	id: house_sprite
+    	center: root.width * 1 / 2, root.center_y * root.height * 0.1
