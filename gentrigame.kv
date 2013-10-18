@@ -1,4 +1,24 @@
 #:kivy 1.0.9
+<MyToolbar>:
+    BoxLayout:
+        ToolbarButton:
+            image: 'house'
+            callback: root.create_house
+#        ToolbarButton:
+#            image: 'image'
+#            callback: root.create_image
+#        ToolbarButton:
+#            image: 'video'
+#            callback: root.create_video
+
+[ToolbarButton@Image]:
+    # This is the same as before
+    source: 'resources/toolbar/%s.png' % ctx.image
+    size: self.texture_size
+    size_hint: None, None
+
+    # Now, we are using the ctx for the variable part of the template
+    on_touch_down: self.collide_point(*args[1].pos) and self.callback()
 
 <House>:
 	image: house_image
@@ -8,18 +28,22 @@
 		source: 'resources/house.jpg'
 
 <GentriCityGame>:
-	rabbit: house_sprite
+#	house: house_sprite
 	size: 800, 600
 	Image:
 		size: 800, 600
 		source: 'resources/background_far.jpg'
-            
-    Label:
-        font_size: 70  
-        center_x: root.width * 1 / 2
-        top: root.top - 50
-        text: "Gentrification City Game"
 
-    House:
-    	id: house_sprite
-    	center: root.width * 1 / 2, root.center_y * root.height * 0.1
+	MyToolbar:
+	    size: 800, 10
+	    top: root.top - 200
+
+#    Label:
+#        font_size: 70
+#        center_x: root.width * 1 / 2
+#        top: root.top - 50
+#        text: "Gentrification City Game"
+#
+#    House:
+#    	id: house_sprite
+#    	center: root.width * 1 / 2, root.center_y * root.height * 0.1
