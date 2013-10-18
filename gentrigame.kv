@@ -2,7 +2,7 @@
 <MyToolbar>:
     BoxLayout:
         ToolbarButton:
-            image: 'house'
+            image: 'createhouse'
             callback: root.create_house
 #        ToolbarButton:
 #            image: 'image'
@@ -14,7 +14,7 @@
 [ToolbarButton@Image]:
     # This is the same as before
     source: 'resources/toolbar/%s.png' % ctx.image
-    size: self.texture_size
+    size: 50, 50
     size_hint: None, None
 
     # Now, we are using the ctx for the variable part of the template
@@ -22,7 +22,7 @@
 
 <House>:
 	image: house_image
-	size: 50,50
+	size: 100, 100
 	Image:
 		id: house_image
 		source: 'resources/house.jpg'
@@ -36,7 +36,8 @@
 
 	MyToolbar:
 	    size: 800, 10
-	    top: root.top - 200
+	    top: root.top - 100
+        rgba: 1,0,0,1
 
 #    Label:
 #        font_size: 70

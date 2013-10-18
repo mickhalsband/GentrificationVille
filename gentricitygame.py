@@ -9,6 +9,7 @@ __author__ = 'mick'
 
 class MyToolbar(BoxLayout):
     def create_house(self):
+
         pass
 
 class GentriCityGame(FloatLayout):
